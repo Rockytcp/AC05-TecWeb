@@ -1,8 +1,29 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, request, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:021092@localhost/equipes'
+db = SQLAlchemy(app)
+
+
+class equipes(db.Model):
+    __tablename__="clube"
+    _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(45))
+    cores = db.Column(db.String(45))
+    estadio = db.Column(db.String(45))
+    def __init__(self, nome, cores, estadio):
+        self.nome = nome
+        self.cores = cores
+        self.estadio = estadio
+    
+
+
+
+
 @app.route("/")
 def index():
     return render_template('index.html')
