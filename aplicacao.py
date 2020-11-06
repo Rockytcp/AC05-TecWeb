@@ -19,10 +19,9 @@ class equipes(db.Model):
         self.nome = nome
         self.cores = cores
         self.estadio = estadio
+
+db.create_all()
     
-
-
-
 
 @app.route("/")
 def index():
@@ -59,6 +58,19 @@ def resultado():
 @app.route("/cadastro")
 def cadastrar_equipe():
     return render_template("cadastro.html")
+
+@app.route("/registrar", methods=['GET', 'POST'])
+def registrar():
+    if request.method == 'POST':
+        nome = (request.form.get("nome"))
+        cores = (request.form.get("cores"))
+        estadio = (request.form.get("estadio"))
+        if nome:
+            var = equipes(nome, cores, estadio)
+            db.session.add(var)
+            db.session.commit()
+    return redirect(url_for("index"))
+
 
 
 app.run()
