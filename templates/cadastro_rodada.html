@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Equipes</title>
+    <title>Cadastro de Rodada</title>
 </head>
 <body>
-    <h1>Cadastro de Equipes</h1>
+    <h1>Cadastro de Rodada</h1>
     <a href="palmeiras.html">Palmeiras</a><br/>
     <a href="liverpool.html">Liverpool</a><br/>
     <a href="milan.html">Milan</a><br/>
@@ -15,17 +15,23 @@
     <a href="chelsea.html">Chelsea</a><br/>
     <a href="index.html">Resultados</a><br/>
     <a href="cadastro">Cadastro de Equipes</a><br/>
-    <a href="cadastro_rodada">Cadastro de Rodada</a>
+    <a href="cadastro_rodada"> Cadastro de Rodada</a><br/>
     <br/>
     <br/>
     <br/>
-    <form action="registrar" method="POST">
-        <label>Nome:</label>
-        <input type="text" name="nome" maxlength="45"/>
-        <label>Cores:</label>
-        <input type="text" name="cores" maxlength="45"/>
+    <form action="registrar_partida" method="POST">
+        <label>Mandante:</label>
+        <input type="text" name="mandante" maxlength="45"/><br/>
+        <br/>
+        <label>Visitante:</label>
+        <input type="text" name="visitante" maxlength="45"/><br/>
+        <br/>
         <label>Estádio:</label>
         <input type="text" name="estadio" maxlength="45"/><br/>
+        <br/>
+        <label>Placar:</label>
+        <input type="text" name="placar" maxlength="5"/>
+        <br/>
         <br/>
         <input type="submit" value="Salvar"/>
     </form>

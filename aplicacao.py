@@ -20,6 +20,19 @@ class equipes(db.Model):
         self.cores = cores
         self.estadio = estadio
 
+class partidas(db.Model):
+    __tablename__="partidas"
+    _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    mandante = db.Column(db.String(45))
+    visitante = db.Column(db.String(45))
+    estadio = db.Column(db.String(45))
+    placar = db.Column(db.String(5))
+    def __init__(self, mandante, visitante, estadio, placar):
+        self.mandante = mandante
+        self.visitante = visitante
+        self.estadio = estadio
+        self.placar = placar
+
 db.create_all()
     
 
@@ -59,6 +72,28 @@ def resultado():
 def cadastrar_equipe():
     return render_template("cadastro.html")
 
+@app.route("/mensagem")
+def mensagem():
+    return render_template("mensagem.html")
+
+@app.route("/cadastro_rodada")
+def cadastrar_rodada():
+    return render_template("cadastro_rodada.html")
+
+@app.route("/registrar_partida", methods=['GET', 'POST'])
+def registrar_partida():
+    if request.method == 'POST':
+        mandante = (request.form.get("mandante"))
+        visitante = (request.form.get("visitante"))
+        estadio = (request.form.get("estadio"))
+        placar = (request.form.get("placar"))
+        if mandante:
+            var = partidas(mandante, visitante, estadio, placar)
+            db.session.add(var)
+            db.session.commit()
+    return redirect(url_for("mensagem"))
+
+
 @app.route("/registrar", methods=['GET', 'POST'])
 def registrar():
     if request.method == 'POST':
@@ -69,7 +104,7 @@ def registrar():
             var = equipes(nome, cores, estadio)
             db.session.add(var)
             db.session.commit()
-    return redirect(url_for("index"))
+    return redirect(url_for("mensagem"))
 
 
 
