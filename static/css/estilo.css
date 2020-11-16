@@ -9,7 +9,23 @@ ul {
   list-style: none;
 }
 
+p{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+li{
+  font-size: 1.8em;
+}
+
 table{
   text-align: center;
   margin: auto;
+  width: 40%;
+
+}
+
+h1{
+    font-size: 4em;
+    font-weight: bold;
 }
