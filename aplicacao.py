@@ -80,6 +80,10 @@ def mensagem():
 def cadastrar_rodada():
     return render_template("cadastro_rodada.html")
 
+@app.route("/visualizar_clubes.html")
+def visualizar_clubes():
+    return render_template("visualizar_clubes.html")
+
 @app.route("/registrar_partida", methods=['GET', 'POST'])
 def registrar_partida():
     if request.method == 'POST':
