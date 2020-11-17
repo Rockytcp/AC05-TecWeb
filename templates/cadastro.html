@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="../static/css/estilo.css"/>
+    <script type=text/javascript src="{{url_for('static', filename='js/javascript.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Equipes</title>
 </head>
 <body>
     <h1>Cadastro de Equipes</h1>
+    <ul id="lista">
+        <li>Palmeiras</li>
+        <li>Liverpool</li>
+        <li>Milan</li>
+        <li>Paysandu</li>
+        <li>Portuguesa</li>
+        <li>Chelsea</li>
+    </ul>
     <p>
         <a href="palmeiras.html">Palmeiras</a><br/>
         <a href="liverpool.html">Liverpool</a><br/>
@@ -25,13 +34,15 @@
     <br/>
     <form action="registrar" method="POST">
         <label>Nome:</label>
-        <input type="text" name="nome" maxlength="45"/>
+        <input type="text" name="nome" id="time" maxlength="45"/>
         <label>Cores:</label>
         <input type="text" name="cores" maxlength="45"/>
         <label>Estádio:</label>
         <input type="text" name="estadio" maxlength="45"/><br/>
         <br/>
-        <input type="submit" value="Salvar"/>
+        <input type="submit" value="Salvar no Banco de Dados"><br/>   
     </form>
+    <br/>
+    <button onclick="adicionar()">Visualizar Clube</button>
 </body>
 </html>
