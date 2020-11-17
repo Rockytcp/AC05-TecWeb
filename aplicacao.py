@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, g
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -109,7 +109,5 @@ def registrar():
             db.session.add(var)
             db.session.commit()
     return redirect(url_for("mensagem"))
-
-
-
+    
 app.run()
