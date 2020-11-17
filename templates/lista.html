@@ -4,29 +4,28 @@
     <link rel="stylesheet" type="text/css" href="../static/css/estilo.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liverpool</title>
+    <title>Lista</title>
 </head>
 <body>
-    <img id="liverpool" src="../static/img/liverpool.png"/>
-    <h1>Liverpool</h1><br/>
-    <p>Time Titular:</p>
-    <ul type='square'>
-        <li>Alisson</li>
-        <li>Alexander Arnold</li>
-        <li>Joe Gomez</li>
-        <li>Van Dijk</li>
-        <li>Robertson</li>
-        <li>Fabinho</li>
-        <li>Wijnaldum</li>
-        <li>Jordan Henderson</li>
-        <li>Mo Salah</li>
-        <li>Diego Jota</li>
-        <li>Sadio Mané</li>
-    </ul><br/>
-    <p>Técnico:</p>
-    <ul type="square">
-        <li>Jurgen Klopp</li>
-    </ul><br/>
+    <h1>Lista de Times</h1>
+    <hr>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Cores</td>
+            <td>Estádio</td>
+        </tr>
+        <tr>
+        {% for equipes in times %}
+        <td>{{ equipes._id}}</td>
+        <td>{{ equipes.nome}}</td>
+        <td>{{ equipes.cores}}</td>
+        <td>{{ equipes.estadio}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
     <p>
         <a href="palmeiras.html">Palmeiras</a><br/>
         <a href="liverpool.html">Liverpool</a><br/>

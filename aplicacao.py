@@ -110,4 +110,11 @@ def registrar():
             db.session.commit()
     return redirect(url_for("mensagem"))
     
+
+@app.route("/lista")
+def lista():
+    times = equipes.query.all()
+    return render_template("lista.html", times=times)
+
+
 app.run()
